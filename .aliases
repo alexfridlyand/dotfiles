@@ -1,0 +1,39 @@
+# vim: ft=sh
+
+export PLATFORM=$(uname -s)
+
+# Unix
+alias c='clear'
+alias h='history'
+alias ping='prettyping --nolegend'
+alias top='htop'
+alias l='ls -alF'
+alias ll='ls -l'
+### Colored ls
+if [ -x /usr/bin/dircolors ]; then
+  export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+  eval "`dircolors -b`"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+elif [ "$PLATFORM" = Darwin ]; then
+  export LSCOLORS='exfxcxdxbxegedabagacad'
+  alias ls='ls -G'
+fi
+
+alias vim="nvim"
+alias e="$EDITOR"
+alias v="$VISUAL"
+
+alias tree="tree -C"
+alias hosts='$EDITOR /etc/hosts'
+
+alias rgh='rg --hidden'
+
+alias yacp="bash $HOME/.yadm/yacp"
+alias ys="yadm status"
+alias yd="yadm diff"
+alias yp="yadm pull"
+alias yb="yadm bootstrap"
+alias ye="e $HOME/.yadm/bootstrap"
+
+alias vimup="bash $HOME/.yadm/vimup"

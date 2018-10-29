@@ -1,0 +1,15 @@
+[user]
+  name = Alex Fridlyand
+  email = alex@fridlyand.com
+  username = alexfridlyand
+  signingkey = 115022A0FB5D619D
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf = input
+[commit]
+  template = ~/.gitmessage
+  gpgsign = true
+[apply]
+  whitespace = fix
+[github]
+  user = alexfridlyand

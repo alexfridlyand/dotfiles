@@ -1,0 +1,29 @@
+# vim: ft=zsh
+zplug "plugins/dotenv", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/github", from:oh-my-zsh
+zplug "plugins/pj", from:oh-my-zsh
+zplug "plugins/zsh_reload", from:oh-my-zsh
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure", use:pure.zsh, as:theme
+
+zplug "zsh-users/zsh-autosuggestions", depth:1
+zplug "zsh-users/zsh-completions", depth:1
+# syntax highlighting of commands
+zplug "zsh-users/zsh-syntax-highlighting", depth:1, defer:2
+
+# docker completions
+zplug "docker/compose", use:contrib/completion/zsh, depth:1
+zplug "docker/cli", use:contrib/completion/zsh, depth:1
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo
+    zplug install
+  fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load

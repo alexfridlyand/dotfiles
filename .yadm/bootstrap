@@ -1,0 +1,148 @@
+#!/bin/bash
+
+system_type=$(uname -s)
+
+bootstrap() {
+    install_nix
+
+    echo "=> upgrade all packages"
+    nix-env -u >/dev/null 2>&1
+
+    echo "=============| begin install group | ============="
+    echo "=| core"
+    install curl
+    install git
+    install zsh
+    configure_zsh
+    install_zplug
+
+    echo "=| dotfile manager"
+    install yadm
+
+    echo "=| fonts"
+
+    install fira-code
+
+    echo "=| terminal"
+    install_kitty
+
+    echo "=| languages"
+
+    install cmake
+    install cargo
+    install python
+    install python3.6-python-language-server
+
+    echo "=| editors"
+
+    install neovim
+    install_vim_manager
+
+    echo "=| deployment"
+
+    install_docker
+    install google-cloud-sdk
+    install kubectl
+    install helm
+
+    echo "=| shell"
+    install ripgrep
+    install fzf
+    install tig
+    install tree
+    install htop
+
+    echo "=| utilities"
+    install editorconfig
+    install gnupg
+
+    echo "=============| end install group | ============="
+}
+
+# =============================================================================
+
+command_exists()
+{
+    command -v "$1" >/dev/null 2>&1
+}
+
+install_nix()
+{
+    echo "=| nix"
+    if ! command_exists nix; then
+        echo "=> install"
+        curl -sL https://nixos.org/nix/install | sh >/dev/null 2>&1
+
+        source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+    fi
+}
+
+install()
+{
+    echo "==| $1"
+    if ! nix-env -qs "$1" >/dev/null 2>&1; then
+        nix-env -i $1 >/dev/null 2>&1
+    fi
+}
+
+clone_pull()
+{
+    (git -C $2 pull || git clone $1 $2) >/dev/null 2>&1
+}
+
+configure_zsh()
+{
+    if [ "$SHELL" != "$(which zsh)" ]; then
+        echo "==> configure"
+        if ! grep -xq "$(which zsh)" /etc/shells; then
+            echo "$(which zsh)" | sudo tee -a /etc/shells >/dev/null 2>&1 && chsh -s $(which zsh) >/dev/null 2>&1
+        fi
+        echo "==> Log out for changes to take effect"
+        exit
+    fi
+}
+
+install_zplug()
+{
+    echo "==| zplug"
+    if [ ! -d "$HOME/.zplug" ]; then
+        curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+    else
+        echo "==> update"
+        clone_pull git@github.com:zplug/zplug.git "$HOME/.zplug"
+    fi
+}
+
+install_kitty()
+{
+    echo "==| kitty"
+    curl -sL https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin \
+        launch=n >/dev/null 2>&1
+
+    if [ "$system_type" = "Linux" ]; then
+        ln -sf ~/.local/kitty.app/bin/kitty ~/.local/bin/
+        cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications
+        # Update the path to the kitty icon in the kitty.desktop file
+        sed -i "s/Icon\=kitty/Icon\=\/home\/$USER\/.local\/kitty.app\/share\/icons\/hicolor\/256x256\/apps\/kitty.png/g" ~/.local/share/applications/kitty.desktop
+        chmod +x ~/.local/share/applications/kitty.desktop
+    fi
+}
+
+install_vim_manager()
+{
+    echo "===| plug"
+    curl -sL https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
+    sh /tmp/installer.sh $HOME/.local/share/dein >/dev/null 2>&1
+    bash $HOME/.yadm/vimup
+}
+
+install_docker()
+{
+    install docker
+    if ! command_exists docker; then
+        echo "===| permissions"
+        sudo usermod -aG docker $USER
+    fi
+}
+
+bootstrap
