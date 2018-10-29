@@ -116,10 +116,11 @@ install_zplug()
 
 dotfiles()
 {
-  echo "===| pull"
   if [ ! -d "$HOME/.yadm/repo.git" ]; then
+    echo "===| clone"
     yadm clone -f --no-bootstrap git@github.com:alexfridlyand/dotfiles.git >/dev/null 2>&1
   else
+    echo "===| pull"
     yadm pull >/dev/null 2>&1
   fi
 }
