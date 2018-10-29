@@ -31,9 +31,10 @@ alias rgh='rg --hidden'
 
 alias yacp="bash $HOME/.yadm/yacp"
 alias ys="yadm status"
-alias yd="yadm diff"
+alias ye="yadm encrypt"
+alias yd="yadm decrypt"
 alias yp="yadm pull"
 alias yb="yadm bootstrap"
-alias ye="e $HOME/.yadm/bootstrap"
+alias ydiff="yadm diff"
 
 alias vimup="bash $HOME/.yadm/vimup"
