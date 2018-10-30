@@ -11,7 +11,7 @@
   template = ~/.config/git/message
   gpgsign = true
 [tag]
-  gpgsign = true
+  forceSignAnnotated = true
 [apply]
   whitespace = fix
 [github]
