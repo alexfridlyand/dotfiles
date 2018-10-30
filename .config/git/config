@@ -4,8 +4,8 @@
   username = alexfridlyand
   signingkey = 115022A0FB5D619D
 [core]
-  excludesfile = ~/.config/git/ignore
   autocrlf = input
+  excludesfile = ~/.config/git/ignore
   hooksPath = ~/.config/git/hooks
 [commit]
   template = ~/.config/git/message
