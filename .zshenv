@@ -4,6 +4,8 @@ export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export XDG_CONFIG_HOME=$HOME/.config
+
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 

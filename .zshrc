@@ -2,7 +2,7 @@
 autoload -U compinit
 compinit
 
-export VISUAL="vim"
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
 # history
