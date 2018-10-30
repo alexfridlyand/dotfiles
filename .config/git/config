@@ -10,6 +10,8 @@
 [commit]
   template = ~/.config/git/message
   gpgsign = true
+[tag]
+  gpgsign = true
 [apply]
   whitespace = fix
 [github]
