@@ -4,11 +4,11 @@
   username = alexfridlyand
   signingkey = 115022A0FB5D619D
 [core]
-  excludesfile = $XDG_CONFIG_HOME/git/ignore
-  hooksPath = ~/
+  excludesfile = ~/.config/git/ignore
   autocrlf = input
+  hooksPath = ~/.config/git/hooks
 [commit]
-  template = $XDG_CONFIG_HOME/git/message
+  template = ~/.config/git/message
   gpgsign = true
 [apply]
   whitespace = fix
