@@ -14,22 +14,22 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 
 # fzf
 _gen_fzf_default_opts() {
-  local color00='#2d2d2d'
-  local color01='#393939'
-  local color02='#515151'
-  local color03='#747369'
-  local color04='#a09f93'
-  local color05='#d3d0c8'
-  local color06='#e8e6df'
-  local color07='#f2f0ec'
-  local color08='#f2777a'
-  local color09='#f99157'
-  local color0A='#ffcc66'
-  local color0B='#99cc99'
-  local color0C='#66cccc'
-  local color0D='#6699cc'
-  local color0E='#cc99cc'
-  local color0F='#d27b53'
+  local color00='#1d1f21'
+  local color01='#282a2e'
+  local color02='#373b41'
+  local color03='#969896'
+  local color04='#b4b7b4'
+  local color05='#c5c8c6'
+  local color06='#e0e0e0'
+  local color07='#ffffff'
+  local color08='#cc6666'
+  local color09='#de935f'
+  local color0A='#f0c674'
+  local color0B='#b5bd68'
+  local color0C='#8abeb7'
+  local color0D='#81a2be'
+  local color0E='#b294bb'
+  local color0F='#a3685a'
 
   export FZF_DEFAULT_OPTS="
     --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D

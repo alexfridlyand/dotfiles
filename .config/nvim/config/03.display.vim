@@ -1,6 +1,6 @@
 set termguicolors
-colorscheme base16-eighties
-let g:airline_theme='base16_eighties'
+colorscheme base16-tomorrow-night
+let g:airline_theme='base16_tomorrow'
 
 " Show both relative line numbers and the current line number (hybrid mode).
 " This way it's easier to move around and do motions.
