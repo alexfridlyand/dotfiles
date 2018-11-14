@@ -6,6 +6,9 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
   call dein#add('haya14busa/dein-command.vim')
 
+  " behaviour
+  call dein#add('lambdalisue/suda.vim')
+
   " indentation
   call dein#add('editorconfig/editorconfig-vim')
 
