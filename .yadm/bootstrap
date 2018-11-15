@@ -38,6 +38,7 @@ bootstrap() {
 
   install neovim
   install_vim_manager
+  install emacs
 
   echo "=| deployment"
 
