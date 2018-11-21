@@ -20,7 +20,7 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('scrooloose/nerdcommenter')
 
   " colorscheme
-  " call dein#add('chriskempson/base16-vim')
+  call dein#add('chriskempson/base16-vim')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('vim-scripts/SyntaxAttr.vim')

@@ -1,6 +1,6 @@
 set termguicolors
 set background=dark
-" colorscheme base16-tomorrow-night
+colorscheme base16-tomorrow-night
 let g:airline_theme='base16_tomorrow'
 
 " Show both relative line numbers and the current line number (hybrid mode).
