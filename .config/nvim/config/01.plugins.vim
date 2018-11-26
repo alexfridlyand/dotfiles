@@ -34,12 +34,6 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('junegunn/fzf')
   call dein#add('junegunn/fzf.vim')
 
-  " lsp
-  call dein#add('autozimu/LanguageClient-neovim', {
-        \ 'rev': 'next',
-        \ 'build': 'bash install.sh',
-        \ })
-
   call dein#end()
   call dein#save_state()
 
