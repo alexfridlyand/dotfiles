@@ -31,8 +31,6 @@ bootstrap() {
 
   install cmake
   install cargo
-  install python
-  install python3.6-python-language-server
 
   echo "=| editors"
 
