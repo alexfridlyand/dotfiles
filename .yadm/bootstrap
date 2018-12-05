@@ -22,7 +22,7 @@ bootstrap() {
 
   echo "=| fonts"
 
-  install fira-code
+  install hack
 
   echo "=| terminal"
   install_kitty
