@@ -27,8 +27,9 @@ bootstrap() {
   echo "=| terminal"
   install_kitty
 
-  echo "=| languages"
+  echo "=| lang env"
 
+  install go
   install cmake
   install cargo
 
