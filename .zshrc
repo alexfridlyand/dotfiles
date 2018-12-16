@@ -24,7 +24,4 @@ source $ZPLUG_HOME/init.zsh
 source "$HOME/.nix-profile/share/fzf/completion.zsh" 2> /dev/null
 source "$HOME/.nix-profile/share/fzf/key-bindings.zsh"
 
-source "$HOME/.nix-profile/google-cloud-sdk/completion.zsh.inc"
-source "$HOME/.nix-profile/google-cloud-sdk/path.zsh.inc"
-
 source "$HOME/.nix-profile/etc/profile.d/nix.sh"
