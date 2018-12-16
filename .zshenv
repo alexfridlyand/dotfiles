@@ -45,7 +45,7 @@ export FZF_DEFAULT_OPTS="
 
 _gen_fzf_default_opts
 
-export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_COMMAND='rg --files --hidden -L'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export ZPLUG_HOME=$HOME/.zplug
