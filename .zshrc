@@ -25,3 +25,9 @@ source "$HOME/.nix-profile/share/fzf/completion.zsh" 2> /dev/null
 source "$HOME/.nix-profile/share/fzf/key-bindings.zsh"
 
 source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/alexfridlyand/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alexfridlyand/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/alexfridlyand/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alexfridlyand/google-cloud-sdk/completion.zsh.inc'; fi
