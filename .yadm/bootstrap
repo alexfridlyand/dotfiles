@@ -41,7 +41,6 @@ bootstrap() {
   echo "=| deployment"
 
   install_docker
-  install google-cloud-sdk
   install kubectl
   install helm
 
