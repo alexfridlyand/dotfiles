@@ -55,6 +55,7 @@ bootstrap() {
   echo "=| utilities"
   install editorconfig
   install gnupg
+  install mosh
 
   echo "=============| end install group | ============="
 }
