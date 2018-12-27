@@ -41,7 +41,6 @@ bootstrap() {
 
   echo "=| deployment"
 
-  install_docker
   install kubectl
   install helm
 
