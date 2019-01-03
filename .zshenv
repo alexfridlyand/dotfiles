@@ -50,5 +50,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export ZPLUG_HOME=$HOME/.zplug
 
+export GOPATH=$HOME/go
+
 # Local config
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
