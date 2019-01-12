@@ -97,6 +97,8 @@ configure_zsh()
     if ! grep -xq "$(which zsh)" /etc/shells; then
       echo "$(which zsh)" | sudo tee -a /etc/shells >/dev/null 2>&1 && chsh -s $(which zsh) >/dev/null 2>&1
     fi
+    echo "==> Log out for changes to take effect"
+    exit
   fi
 }
 
