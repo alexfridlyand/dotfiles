@@ -95,8 +95,9 @@ configure_zsh()
   if [ "$SHELL" != "$(which zsh)" ]; then
     echo "==> configure"
     if ! grep -xq "$(which zsh)" /etc/shells; then
-      echo "$(which zsh)" | sudo tee -a /etc/shells >/dev/null 2>&1 && chsh -s $(which zsh) >/dev/null 2>&1
+      echo "$(which zsh)" | sudo tee -a /etc/shells >/dev/null 2>&1
     fi
+    chsh -s $(which zsh) >/dev/null 2>&1
     echo "==> Log out for changes to take effect"
     exit
   fi
@@ -116,6 +117,8 @@ install_zplug()
 dotfiles()
 {
   if [ ! -d "$HOME/.yadm/repo.git" ]; then
+    source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+  
     echo "===| clone"
     yadm clone -f --no-bootstrap git@github.com:alexfridlyand/dotfiles.git >/dev/null 2>&1
   else
