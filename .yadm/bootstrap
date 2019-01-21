@@ -41,6 +41,7 @@ bootstrap() {
 
   echo "=| deployment"
 
+  docker
   install kubectl
   install helm
 
@@ -118,7 +119,7 @@ dotfiles()
 {
   if [ ! -d "$HOME/.yadm/repo.git" ]; then
     source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-  
+
     echo "===| clone"
     yadm clone -f --no-bootstrap git@github.com:alexfridlyand/dotfiles.git >/dev/null 2>&1
   else
@@ -134,6 +135,7 @@ install_kitty()
     launch=n >/dev/null 2>&1
 
   if [ "$system_type" = "Linux" ]; then
+    mkdir -p ~/.local/bin
     ln -sf ~/.local/kitty.app/bin/kitty ~/.local/bin/
     cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications
     # Update the path to the kitty icon in the kitty.desktop file
@@ -150,9 +152,8 @@ install_vim_manager()
   bash $HOME/.yadm/vimup
 }
 
-install_docker()
+docker()
 {
-  install docker
   if ! command_exists docker; then
     echo "===| permissions"
     sudo usermod -aG docker $USER
