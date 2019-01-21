@@ -41,7 +41,6 @@ bootstrap() {
 
   echo "=| deployment"
 
-  docker
   install kubectl
   install helm
 
@@ -150,14 +149,6 @@ install_vim_manager()
   curl -sL https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
   sh /tmp/installer.sh $HOME/.local/share/dein >/dev/null 2>&1
   bash $HOME/.yadm/vimup
-}
-
-docker()
-{
-  if ! command_exists docker; then
-    echo "===| permissions"
-    sudo usermod -aG docker $USER
-  fi
 }
 
 bootstrap
