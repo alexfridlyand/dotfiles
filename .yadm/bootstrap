@@ -3,17 +3,15 @@
 system_type=$(uname -s)
 
 bootstrap() {
-  install_nix
+  install_brew
 
   echo "=> upgrade all packages"
-  nix-env -u >/dev/null 2>&1
+  brew upgrade
 
   echo "=============| begin install group | ============="
   echo "=| core"
   install curl
   install git
-  install zsh
-  configure_zsh
   install_zplug
 
   echo "=| dotfiles"
@@ -66,41 +64,27 @@ command_exists()
   command -v "$1" >/dev/null 2>&1
 }
 
-install_nix()
+install_brew()
 {
-  echo "=| nix"
-  if ! command_exists nix; then
+  echo "=| brew"
+  if ! command_exists brew; then
     echo "=> install"
-    curl -sL https://nixos.org/nix/install | sh >/dev/null 2>&1
-
-    source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" >/dev/null 2>&1
   fi
+  brew update
 }
 
 install()
 {
   echo "==| $1"
-  if ! nix-env -qs "$1" >/dev/null 2>&1; then
-    nix-env -i $1 >/dev/null 2>&1
+  if ! brew ls --versions "$1" >/dev/null 2>&1; then
+    brew install $1 >/dev/null 2>&1
   fi
 }
 
 clone_pull()
 {
   (git -C $2 pull || git clone $1 $2) >/dev/null 2>&1
-}
-
-configure_zsh()
-{
-  if [ "$SHELL" != "$(which zsh)" ]; then
-    echo "==> configure"
-    if ! grep -xq "$(which zsh)" /etc/shells; then
-      echo "$(which zsh)" | sudo tee -a /etc/shells >/dev/null 2>&1
-    fi
-    chsh -s $(which zsh) >/dev/null 2>&1
-    echo "==> Log out for changes to take effect"
-    exit
-  fi
 }
 
 install_zplug()
@@ -117,8 +101,6 @@ install_zplug()
 dotfiles()
 {
   if [ ! -d "$HOME/.yadm/repo.git" ]; then
-    source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-
     echo "===| clone"
     yadm clone -f --no-bootstrap git@github.com:alexfridlyand/dotfiles.git >/dev/null 2>&1
   else

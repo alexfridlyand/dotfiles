@@ -1,5 +1,5 @@
 # ensure dotfiles bin directory is loaded first
-export PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.nix-profile/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 export TERM="xterm-256color"
 
 export LC_ALL=en_US.UTF-8
