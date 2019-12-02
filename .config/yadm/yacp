@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# aka yadm add commit push
+
+yadm add -u
+
+yadm commit -m "Auto-commit on change (`date +'%Y-%m-%d %r'`)"
+
+yadm push
