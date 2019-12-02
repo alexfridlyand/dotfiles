@@ -130,7 +130,7 @@ install_vim_manager()
   echo "===| plug"
   curl -sL https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
   sh /tmp/installer.sh $HOME/.local/share/dein >/dev/null 2>&1
-  bash $HOME/.yadm/vimup
+  bash $HOME/.config/yadm/vimup
 }
 
 bootstrap
