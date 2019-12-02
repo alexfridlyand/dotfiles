@@ -1,4 +1,0 @@
-.gnupg/**/*.key
-.gnupg/**/*.rev
-.gnupg/*.gpg
-.gnupg/*.kbx

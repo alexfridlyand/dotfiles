@@ -29,7 +29,7 @@ alias hosts='$EDITOR /etc/hosts'
 
 alias rgh='rg --hidden'
 
-alias yacp="bash $HOME/.yadm/yacp"
+alias yacp="bash $HOME/.config/yadm/yacp"
 alias ys="yadm status"
 alias ye="yadm encrypt"
 alias yd="yadm decrypt"
