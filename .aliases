@@ -37,4 +37,4 @@ alias yp="yadm pull"
 alias yb="yadm bootstrap"
 alias ydiff="yadm diff"
 
-alias vimup="bash $HOME/.yadm/vimup"
+alias vimup="bash $HOME/.config/yadm/vimup"
