@@ -29,7 +29,7 @@ bootstrap() {
 
   install go
   install cmake
-  install cargo
+  install rust
 
   echo "=| editors"
 
@@ -77,8 +77,8 @@ install_brew()
 install()
 {
   echo "==| $1"
-  if ! brew ls --versions "$1" >/dev/null 2>&1; then
-    brew install $1
+  if ! brew info "$1" >/dev/null 2>&1 ; then
+    brew install $1 > /dev/null
   fi
 }
 
