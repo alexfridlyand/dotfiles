@@ -20,7 +20,7 @@ bootstrap() {
   dotfiles
 
   echo "=| fonts"
-  install hack
+  install homebrew/cask-fonts/font-hack
 
   echo "=| terminal"
   install_kitty
@@ -78,7 +78,7 @@ install()
 {
   echo "==| $1"
   if ! brew ls --versions "$1" >/dev/null 2>&1; then
-    brew install $1 >/dev/null 2>&1
+    brew install $1
   fi
 }
 
