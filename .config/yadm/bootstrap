@@ -28,14 +28,12 @@ bootstrap() {
   echo "=| lang env"
 
   install go
-  install cmake
   install rust
 
   echo "=| editors"
 
   install neovim
   install_vim_manager
-  install emacs
 
   echo "=| deployment"
 
@@ -52,7 +50,6 @@ bootstrap() {
   echo "=| utilities"
   install editorconfig
   install gnupg
-  install mosh
 
   echo "=============| end install group | ============="
 }
@@ -77,8 +74,10 @@ install_brew()
 install()
 {
   echo "==| $1"
-  if ! brew info "$1" >/dev/null 2>&1 ; then
-    brew install $1 > /dev/null
+  if ! brew ls $1 >/dev/null 2>&1; then
+    if ! brew cask ls $1 >/dev/null 2>&1; then
+      brew install $1 > /dev/null
+    fi
   fi
 }
 
