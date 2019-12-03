@@ -26,9 +26,7 @@ bootstrap() {
   install_kitty
 
   echo "=| lang env"
-
-  install go
-  install rust
+  install_rust
 
   echo "=| editors"
 
@@ -113,15 +111,12 @@ install_kitty()
   echo "==| kitty"
   curl -sL https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin \
     launch=n >/dev/null 2>&1
+}
 
-  if [ "$system_type" = "Linux" ]; then
-    mkdir -p ~/.local/bin
-    ln -sf ~/.local/kitty.app/bin/kitty ~/.local/bin/
-    cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications
-    # Update the path to the kitty icon in the kitty.desktop file
-    sed -i "s/Icon\=kitty/Icon\=\/home\/$USER\/.local\/kitty.app\/share\/icons\/hicolor\/256x256\/apps\/kitty.png/g" ~/.local/share/applications/kitty.desktop
-    chmod +x ~/.local/share/applications/kitty.desktop
-  fi
+install_rust()
+{
+  echo "==| rust"
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y > /dev/null 2>&1
 }
 
 install_vim_manager()
